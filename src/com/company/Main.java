@@ -3,48 +3,42 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        // n1
-        int[] a1 = new int[]{1, 2};
+        int[] arr = new int[] {1, 5, 9, 3, 6, 3, 2, 7, 654, 3};
+        for (int i = 0; i < arr.length-1; i++) {
+            for (int j = i+1; j < arr.length; j++) {
+                if (arr[i] < arr[j]) {
+                    arr[i] += arr[j];
+                    arr[j] = arr[i] - arr[j];
+                    arr[i] -= arr[j];
+                }
+            }
+        }
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
 
-        // n2
-        int[] a2 = new int[1000];
-        for (int i = 1; i < 1001; i++)
-            a2[i - 1] = i;
+        System.out.println("\n___________________________________________________________________\n");
 
-        // n3
-        int[] a3 = new int[10];
-        for (int i = 1, j = 0; i < 20; i += 2)
-            a3[j++] = i;
+        Product milk = new Product();
+        milk.setName("Milk");
+        milk.setDescription("Coconut drink with rice, calcium, vitamins D2 և B12.");
+        milk.setPrice(2.99);
+        milk.setProduction_date(2021_09_04);
+        milk.setShelf_life(2021_09_05);
+        milk.setManufacturer("Mona Naturprodukte GmbH");
+        milk.setIngredients("Water, coconut milk - 5.3%, rice, thickener․․․");
 
-        // n4
-        int[] a4 = new int[20];
-        for (int i = 0; i < 20; i++)
-            a4[i] = i;
-        for (int i = 0; i < a4.length; i++)
-            if (a4[i] % 5 == 0)
-                System.out.println(a4[i]);
+        System.out.println( milk.getDetails() );
 
-        // n5
-        int[] a5 = new int[1000];
-        for (int i = 0; i < 1000; i++)
-            a5[i] = i;
-        for (int i = 0; i < a5.length; i++)
-            if (a5[i] > 24 && a5[i] < 468)
-                System.out.println(a5[i]);
+        Product bread = new Product();
+        milk.setName("Bread");
+        milk.setDescription("Sandwich bread");
+        milk.setPrice(0.45);
+        milk.setProduction_date(2021_09_04);
+        milk.setShelf_life(2021_13_04);
+        milk.setManufacturer("Grupo Bimbo");
+        milk.setIngredients(null);
 
-        // n6
-        int[] a6 = new int[20];
-        int n1 = 0;
-        for (int i = 1; i < 21; i++)
-            a6[i-1] = i;
-        for (int i = 0; i < a6.length; i++)
-            if (a6[i] % 2 == 0)
-                n1++;
-        System.out.println(n1);
-
-        // n7
-        int n2 = 2;
-        for (int i = 1; i < 11; i++)
-            System.out.println(n2 + "x" + i + " = " + n2 * i);
+        System.out.println( bread.getDetails() );
     }
 }
