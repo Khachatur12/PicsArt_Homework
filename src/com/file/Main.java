@@ -8,13 +8,13 @@ import java.util.Objects;
 public class Main {
 
     public static void main(String[] args) {
-        String path = "C:/Users/xachh/OneDrive/Рабочий стол/1";
+        String path = "...";
         File file = new File(path);
 
-        showFileName(file);
+        showFilenames(file);
     }
 
-    public static void showFileName(File file){
+    public static void showFilenames(File file){
         List<File> list = new LinkedList<>();
         list.add(file);
 
