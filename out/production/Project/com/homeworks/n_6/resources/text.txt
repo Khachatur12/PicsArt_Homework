@@ -1,0 +1,4 @@
+Aram,Avagyan,2000,m,70.0
+Hayk,Arabyan,1998,m,77.5
+Ani,Babayan,1980,f,47.5
+Karine,Vancyan,2000,f,87.5

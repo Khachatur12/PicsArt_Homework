@@ -7,9 +7,11 @@ import java.util.Scanner;
 
 public class TaxiTest {
     public static void main(String[] args) {
-        int count = 1;
+        int count = 3;
         TaxiService taxiService = new TaxiService();
         Taxi[] taxis = taxiService.getTaxisArray(count);
+
+
 
         boolean isActive = true;
         Scanner scanner = new Scanner(System.in);
@@ -24,6 +26,7 @@ public class TaxiTest {
             System.out.println("6: Print first Taxi with minimal weight");
             System.out.println("7: Pring first Taxi with minimal cost from all sport Taxis");
             System.out.println("8: Print Taxis order by year");
+            System.out.print("\nCommand number: ");
             String comm = scanner.next();
 
             switch (comm){
@@ -35,7 +38,7 @@ public class TaxiTest {
                     break;
                 case "2":
                     Taxi newer = taxiService.getFirstNewer(taxis);
-                    System.out.printf(newer.toString());
+                    System.out.println(newer);
                     break;
                 case "3":
                     String country = taxiService.getNameOfFirstSmallestSeats(taxis);
