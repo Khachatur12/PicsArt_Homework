@@ -1,0 +1,4 @@
+movie_element_separation=~_~
+movie_genres_separation=,
+movies_next_index=10
+genre_next_index=10

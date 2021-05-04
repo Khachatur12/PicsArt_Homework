@@ -1,0 +1,7 @@
+1=Comedy
+2=Action
+3=Adventure
+4=Fantasy
+5=Horror
+6=Romance
+7=Drama

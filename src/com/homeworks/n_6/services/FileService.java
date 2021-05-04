@@ -3,6 +3,7 @@ package com.homeworks.n_6.services;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.TreeSet;
 
 public class FileService {
     public String[] getStringArray(Path path) {
@@ -12,6 +13,8 @@ public class FileService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
 
         return result;
     }
