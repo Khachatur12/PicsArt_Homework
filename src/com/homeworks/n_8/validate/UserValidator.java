@@ -3,11 +3,11 @@ package com.homeworks.n_8.validate;
 import com.homeworks.n_8.models.User;
 
 public interface UserValidator {
-    void validateUsername(User user);
+    void validateUsername(String username);
 
-    void validateEmail(User user);
+    void validateEmail(String email);
 
-    void validatePassword(User user);
+    void validatePassword(String password);
 
     void validateUser(User user);
 }

@@ -2,13 +2,11 @@ package com.homeworks.n_8.services;
 
 import com.homeworks.n_8.models.User;
 import com.homeworks.n_8.repo.UserRepo;
-import com.homeworks.n_8.repo.UserRepoImpl;
 import com.homeworks.n_8.validate.UserValidateException;
 import com.homeworks.n_8.validate.UserValidator;
 
 import java.security.MessageDigest;
 import java.util.Scanner;
-import java.util.concurrent.ExecutionException;
 
 public class UserServiceImpl implements UserService {
     private UserRepo userRepo;
@@ -66,7 +64,7 @@ public class UserServiceImpl implements UserService {
             System.out.print("input username: ");
             user.setUsername(scanner.nextLine());
             try {
-                userValidator.validateUsername(user);
+                userValidator.validateUsername(user.getUsername());
                 canContinue = true;
             } catch (UserValidateException e) {
                 System.out.println(e.getMessage());
@@ -78,7 +76,7 @@ public class UserServiceImpl implements UserService {
             System.out.print("input email: ");
             user.setEmail(scanner.nextLine());
             try {
-                userValidator.validateEmail(user);
+                userValidator.validateEmail(user.getEmail());
                 canContinue = true;
             } catch (UserValidateException e) {
                 System.out.println(e.getMessage());
@@ -90,7 +88,7 @@ public class UserServiceImpl implements UserService {
             System.out.print("input password: ");
             user.setPassword(scanner.nextLine());
             try {
-                userValidator.validatePassword(user);
+                userValidator.validatePassword(user.getPassword());
                 canContinue = true;
             } catch (UserValidateException e) {
                 System.out.println(e.getMessage());

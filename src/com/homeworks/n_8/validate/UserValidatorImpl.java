@@ -2,7 +2,6 @@ package com.homeworks.n_8.validate;
 
 import com.homeworks.n_8.models.User;
 import com.homeworks.n_8.repo.UserRepo;
-import com.homeworks.n_8.repo.UserRepoImpl;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,59 +14,59 @@ public class UserValidatorImpl implements UserValidator {
     }
 
     @Override
-    public void validateUsername(User user) {
+    public void validateUsername(String username) {
         // checking username duplicate
-        User userByUsername = userRepo.getUserByUsername(user.getUsername());
+        User userByUsername = userRepo.getUserByUsername(username);
         if (userByUsername != null) {
-            throw new UserValidateException("Username is already taken: " + user.getUsername());
+            throw new UserValidateException("Username is already taken: " + username);
         }
 
         // checking username length
-        if (user.getUsername().length() < 11) {
+        if (username.length() < 11) {
             throw new UserValidateException("Username length must be more than 10 characters");
         }
 
     }
 
     @Override
-    public void validateEmail(User user) {
+    public void validateEmail(String email) {
         // checking email
         Pattern pattern = Pattern.compile("^[\\w.%+-]+@[\\w.-]+\\.[\\w]{2,6}$");
-        Matcher matcher = pattern.matcher(user.getEmail());
+        Matcher matcher = pattern.matcher(email);
 
         if (!matcher.find()) {
-            throw new UserValidateException("Invalid email: " + user.getEmail());
+            throw new UserValidateException("Invalid email: " + email);
         }
     }
 
     @Override
-    public void validatePassword(User user) {
+    public void validatePassword(String password) {
         // checking password length
-        if (user.getPassword().length() < 9) {
+        if (password.length() < 9) {
             throw new UserValidateException("Password length must be more than 8 characters");
         }
 
 
         // checking 2 uppercase letters
         Pattern pattern = Pattern.compile("[A-Z].*[A-Z]");
-        Matcher matcher = pattern.matcher(user.getPassword());
+        Matcher matcher = pattern.matcher(password);
         if (!matcher.find()) {
-            throw new UserValidateException("Password must contain at least 2 uppercase letters: " + user.getPassword());
+            throw new UserValidateException("Password must contain at least 2 uppercase letters: " + password);
         }
 
         // checking 3 numbers
         pattern = Pattern.compile("([0-9].*){3,}");
-        matcher = pattern.matcher(user.getPassword());
+        matcher = pattern.matcher(password);
         if (!matcher.find()) {
-            throw new UserValidateException("Invalid email: " + user.getPassword());
+            throw new UserValidateException("Invalid email: " + password);
         }
     }
 
     @Override
     public void validateUser(User user) {
-        validateUsername(user);
-        validateEmail(user);
-        validatePassword(user);
+        validateUsername(user.getUsername());
+        validateEmail(user.getEmail());
+        validatePassword(user.getPassword());
     }
 
 }

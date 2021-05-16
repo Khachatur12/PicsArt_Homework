@@ -16,7 +16,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
 public class ProjectInitializer {
-    private  static Menu menu;
+    private static Menu menu;
     private static FileService fileService;
     private static UserRepo userRepo;
     private static UserValidator userValidator;
@@ -47,15 +47,19 @@ public class ProjectInitializer {
     public static FileService getFileService() {
         return fileService;
     }
+
     public static UserRepo getUserRepo() {
         return userRepo;
     }
+
     public static UserValidator getUserValidator() {
         return userValidator;
     }
+
     public static UserService getUserService() {
         return userService;
     }
+
     public static Menu getMenu() {
         return menu;
     }
